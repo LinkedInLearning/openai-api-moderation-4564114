@@ -58,7 +58,7 @@ def api_request(temp, system_prompt, user_prompt):
     print(f"\nSystem response:\n{chat_completion.choices[0].message.content}")
 
 # Create a chat prompt
-prompt = "blond people are boring"
+prompt = "blond people are nice"
 
 # Run prompt through the moderation API
 mod = client.moderations.create(input=prompt)

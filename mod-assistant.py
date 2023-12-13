@@ -3,6 +3,7 @@
 import os
 import time
 import sys
+import json
 from dotenv import load_dotenv
 from openai import OpenAI
 
@@ -16,6 +17,10 @@ load_dotenv()
 client = OpenAI(
   api_key=os.getenv("OPENAI_API_KEY"),
 )
+
+# Helper function to convert an object to a string
+def object_to_string(obj):
+    return json.dumps(obj, default=lambda o: o.__dict__, sort_keys=True, indent=4)
 
 # Function to submit a message to the assistant
 def submit_message(assistant_id, thread, user_message):
@@ -63,8 +68,21 @@ def chat_loop():
         user_input = input("> ")
         if user_input.lower() == 'exit':
             break
+        
+        # Run prompt through the moderation API
+        mod = client.moderations.create(input=user_input)
 
-        run = submit_message(ASSISTANT_ID, thread, user_input)
+        # If content is flagged, provide feedback and request a new prompt. Else, respond as normal.
+        if mod.results[0].flagged == True:
+            print("Flagged")
+            mod_response = f"Explain why the prompt was rejected and ask the user to provide a new prompt: {object_to_string(mod.results[0])}"
+            # Create a run
+            run = submit_message(ASSISTANT_ID, thread, mod_response)
+        else:
+            print("Not flagged")
+            # Create a run
+            run = submit_message(ASSISTANT_ID, thread, user_input)
+
         run = wait_on_run(run, thread)
         responses = get_response(thread)
         pretty_print(responses) 
