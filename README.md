@@ -1,4 +1,4 @@
-# COURSENAME
+# OpenAI API: Moderation.
 This is the repository for the LinkedIn Learning course `OpenAI API: Moderation`. The full course is available from [LinkedIn Learning][lil-course-url].
 
 ![course-name-alt-text][lil-thumbnail-url] 
@@ -26,6 +26,6 @@ For further info on OpenAI Assistants check out our dedicated course on the subj
 
 [0]: # (Replace these placeholder URLs with actual course URLs)
 
-[lil-course-url]: https://www.linkedin.com/learning/
-[lil-thumbnail-url]: http://
+[lil-course-url]: https://www.linkedin.com/learning/openai-api-moderation
+[lil-thumbnail-url]: https://media.licdn.com/dms/image/D560DAQEOeWMzlRnrkQ/learning-public-crop_675_1200/0/1704244853724?e=2147483647&v=beta&t=R3orOYQGHE5MmQjPcuUvNvqd-KKh5y0maSqLcDIACVQ
 
