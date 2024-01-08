@@ -1,6 +1,8 @@
 # OpenAI API: Moderation.
 This is the repository for the LinkedIn Learning course `OpenAI API: Moderation`. The full course is available from [LinkedIn Learning][lil-course-url].
 
+Left unchecked, AI systems can both process and output what can be considered harmful language. Sometimes this is necessary; other times it is unwanted. Using the OpenAI API, you can apply moderation tools to the communication between the user and the API to control both what goes into and what comes out of the system. In this course, you’ll get an overview of how these features work and how to implement them in your app.
+
 ![course-name-alt-text][lil-thumbnail-url] 
 
 _See the readme file in the main branch for updated instructions and information._
